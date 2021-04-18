@@ -12,7 +12,7 @@ public class App {
         Algoritme nim = new Algoritme(nimScan);
 
         System.out.println("\nJenjang Pendidikan\t\t: " + nim.jenjangPendidikan());
-        System.out.println("Angkatan\t\t\t\t: " + nim.angkatan());
+        System.out.println("Angkatan\t\t\t\t: " + nim.tm());
         System.out.println("Fakultas\t\t\t\t: " + nim.fakultas());
         System.out.println("Prodi\t\t\t\t\t: " + nim.prodi());
         System.out.println("Jenis Kelamin\t\t\t: " + nim.jenisKelamin());

@@ -24,7 +24,7 @@ public class Algoritme {
     }
 
     // 18 19 20
-    public String angkatan() {
+    public String tm() {
         if (this.nim.substring(1,3).equalsIgnoreCase("18")) {
             return "2018";
         }else if (this.nim.substring(1,3).equalsIgnoreCase("19")) {
