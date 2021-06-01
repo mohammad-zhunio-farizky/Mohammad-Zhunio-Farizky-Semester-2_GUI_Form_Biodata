@@ -27,7 +27,8 @@ public class FormBiodata {
                 + "\nAngkatan\t\t: " + mhs.tm()
                 + "\nFakultas\t\t: " + mhs.fakultas()
                 + "\nProdi\t\t: " + mhs.prodi()
-                + "\nJenis Kelamin\t\t: " + mhs.jenisKelamin() +"\n"
+                + "\nJenis Kelamin\t\t: " + mhs.jenisKelamin()
+                +"\nNomor urut Mahasiswa\t\t: " + mhs.noUM() +"\n"
             );
         });
     }
