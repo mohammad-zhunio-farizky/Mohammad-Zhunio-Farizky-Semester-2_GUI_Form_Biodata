@@ -7,7 +7,14 @@ public class FormBiodata {
     private JTextField textNIM;
     private JButton buttonSave;
     private JPanel rootPanel;
-    private JLabel labelHasil;
+    private JLabel labelNama;
+    private JLabel labelNIM;
+    private JLabel labelJP;
+    private JLabel labelAkt;
+    private JLabel labelFk;
+    private JLabel labelPr;
+    private JLabel labelJK;
+    private JLabel labelNoUM;
 
     public FormBiodata() {
         buttonSave.addActionListener(actionEvent -> {
@@ -20,16 +27,14 @@ public class FormBiodata {
                 mhs.setNama(nama);
                 mhs.setNim(nim);
             //Tampilkan output ke Form
-            labelHasil.setText(
-                "Nama\t\t: " + mhs.getNama()
-                + "\nNIM\t\t: " + mhs.getNim()
-                + "\nJenjang Pendidikan\t\t: " + mhs.jenjangPendidikan()
-                + "\nAngkatan\t\t: " + mhs.tm()
-                + "\nFakultas\t\t: " + mhs.fakultas()
-                + "\nProdi\t\t: " + mhs.prodi()
-                + "\nJenis Kelamin\t\t: " + mhs.jenisKelamin()
-                +"\nNomor urut Mahasiswa\t\t: " + mhs.noUM() +"\n"
-            );
+            labelNama.setText("Nama                                      :   " + mhs.getNama());
+            labelNIM.setText ("NIM                                          :   " + mhs.getNim());
+            labelJP.setText  ("Jenjang Pendidikan            :   " + mhs.jenjangPendidikan());
+            labelAkt.setText ("Angkatan                               :   " + mhs.tm());
+            labelFk.setText  ("Fakultas                                 :   " + mhs.fakultas());
+            labelPr.setText  ("Prodi                                       :   " + mhs.prodi());
+            labelJK.setText  ("Jenis Kelamin                      :   " + mhs.jenisKelamin());
+            labelNoUM.setText("Nomor urut Mahasiswa     :   " + mhs.noUM());
         });
     }
 
