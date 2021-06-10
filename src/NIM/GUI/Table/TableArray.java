@@ -2,15 +2,15 @@ package NIM.GUI.Table;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class TableArray {
     private JPanel rootPanel;
-    private JTextField textData;
+    private JTextField textBanyak;
     private JButton buttonSave;
     private JTable tableNilai;
+    private JTextField textData;
     private DefaultTableModel tableModel;
+    private boolean added = false;
 
     public JPanel getRootPanel() {
         return rootPanel;
@@ -18,29 +18,50 @@ public class TableArray {
 
     public TableArray() {
         this.initComponents();
-        buttonSave.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                String data = textData.getText();
-                if (data.isEmpty()) {
-                    JOptionPane.showMessageDialog(rootPanel,
-                            "Data Belum Lengkap",
-                            "Warning",
-                            JOptionPane.WARNING_MESSAGE);
-                } else {
-                    tableModel.addRow(new Object[]{data});
-                    //clear textField
-                    textData.setText("");
+        buttonSave.addActionListener(actionEvent -> {
+            DefaultTableModel model = (DefaultTableModel) tableNilai.getModel();
+
+            String data = textData.getText();
+            if (data.isEmpty()) {
+                JOptionPane.showMessageDialog(rootPanel,
+                        "Data Belum Lengkap",
+                        "Warning",
+                        JOptionPane.WARNING_MESSAGE);
+            } else {
+                tableModel.addRow(new Object[]{data});
+                //clear textField
+                textData.setText("");
+            }
+
+
+            int c = Integer.parseInt(textBanyak.getText());
+
+            if (!added) {
+                for (int i = 0; i < c; i++) {
+                    model.addRow(new Object[]{});
                 }
+                added = true;
+            }
+            int a = 0;
+            for (int i : Sorting.getA(data,c)) {
+                model.setValueAt(i,a,0);
+                a++;
+            }
+            int b = 0;
+            for (int i : Sorting.getD(data,c)) {
+                model.setValueAt(i,b,1);
+                b++;
             }
         });
     }
 
     private void initComponents () {
         Object[] tableColom = {
-                "Data"
+                "Ascending", "Descending"
         };
-        Object[][] initData = {};
+        Object[][] initData = {
+
+        };
         tableModel = new DefaultTableModel(initData, tableColom);
         tableNilai.setModel(tableModel);
         tableNilai.setAutoCreateRowSorter(true);
